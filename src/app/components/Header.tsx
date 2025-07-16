@@ -1,24 +1,34 @@
+import Link from "next/link";
+
 export default function Header() {
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         <div className="text-2xl font-bold text-purple-700">
-          روان‌یار
+          روان گر
         </div>
 
         <nav className="hidden md:flex space-x-6">
-          <a href="#home" className="text-gray-700 hover:text-purple-700 transition">
-            خانه
-          </a>
-          <a href="#services" className="text-gray-700 hover:text-purple-700 transition">
-            خدمات
-          </a>
-          <a href="#blog" className="text-gray-700 hover:text-purple-700 transition">
-            مقالات
-          </a>
-          <a href="#contact" className="text-gray-700 hover:text-purple-700 transition">
-            ارتباط با ما
-          </a>
+          <Link href={"/"}>
+          <button className="text-gray-700 hover:text-purple-700 transition cursor-pointer">خانه</button>
+          </Link>
+
+          <Link href={"/aboute"}>
+          <button className="text-gray-700 hover:text-purple-700 transition cursor-pointer">درباره</button>
+          </Link>
+
+          <Link href={"/contact"}>
+          <button className="text-gray-700 hover:text-purple-700 transition cursor-pointer">راه ارتباطی</button>
+          </Link>
+          
+          <Link href={"/aboute"}>
+          <button className="text-gray-700 hover:text-purple-700 transition cursor-pointer">خدمات</button>
+          </Link>
+          
+          <Link href={"/aboute"}>
+          <button className="text-gray-700 hover:text-purple-700 transition cursor-pointer">مقالات</button>
+          </Link>
+          
         </nav>
 
         <a

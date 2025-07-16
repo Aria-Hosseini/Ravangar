@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import localFont from 'next/font/local'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,6 +20,12 @@ export const metadata: Metadata = {
   description: "developed by ARIA",
 };
 
+const vazir = localFont({
+  src: '../fonts/Vazir-Medium.woff2',
+  display: 'swap',
+  variable: '--font-vazir',
+})
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -27,13 +34,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link
-          href="https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.css"
-          rel="stylesheet"
-        />
+        <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased font-vazir`}
+      <body 
+        style={{fontFamily : 'Vazirmatn'}}
+        className={`${geistSans.variable} ${geistMono.variable} font-vazir antialiased`}
       >
         <Header />
         {children}

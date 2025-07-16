@@ -1,14 +1,10 @@
+// tailwind.config.js
 module.exports = {
-  content: [
-    "./app/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
-  ],
   theme: {
-  extend: {
-    fontFamily: {
-      vazir: ['Vazir', 'sans-serif'],
+    extend: {
+      fontFamily: {
+        vazir: ['Vazirmatn', 'sans-serif'],
+      },
     },
   },
-},
-  plugins: [],
-};
+}

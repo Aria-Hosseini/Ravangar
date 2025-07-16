@@ -1,12 +1,14 @@
+import { Vazirmatn } from "next/font/google";
+
 export default function Home() {
   return (
     <main className="bg-white text-gray-800">
       <section className="bg-purple-50 py-20 px-6 text-center">
         <h1 className="text-4xl md:text-5xl font-bold text-purple-700 mb-4">
-          آرامش روانی با روان‌یار
+          آرامش روانی با روان گر
         </h1>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          روان‌یار همراه شماست برای شناخت بهتر خود، مدیریت استرس، و رشد فردی با کمک متخصصین روانشناسی.
+        <p style={{fontFamily : 'Vazirmatn'}} className="font-vazir text-lg text-gray-600 max-w-2xl mx-auto">
+          با روان‌گر، ذهنی آرام، زندگی متعادل و مسیر رشد فردی رو تجربه کنید.
         </p>
         <a
           href="#booking"
@@ -57,7 +59,7 @@ export default function Home() {
               >
                 <h3 className="text-lg font-semibold text-purple-600 mb-2">{title}</h3>
                 <p className="text-sm text-gray-600">
-                  توضیحی کوتاه درباره مقاله. می‌تونی متن اصلی رو از دیتابیس لود کنی.
+                  توضیحی کوتاه درباره مقاله.
                 </p>
                 <a href="#" className="text-sm text-purple-700 mt-2 inline-block hover:underline">
                   ادامه مطلب
