@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import localFont from 'next/font/local'
+import TopProgressBar from "./components/TopProgressBar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -41,6 +42,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} font-vazir antialiased`}
       >
         <Header />
+        <TopProgressBar />
         {children}
         <Footer />
       </body>

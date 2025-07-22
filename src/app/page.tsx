@@ -1,4 +1,5 @@
 import { Vazirmatn } from "next/font/google";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -10,12 +11,9 @@ export default function Home() {
         <p style={{fontFamily : 'Vazirmatn'}} className="font-vazir text-lg text-gray-600 max-w-2xl mx-auto">
           با روان‌گر، ذهنی آرام، زندگی متعادل و مسیر رشد فردی رو تجربه کنید.
         </p>
-        <a
-          href="#booking"
-          className="mt-6 inline-block bg-purple-600 text-white px-6 py-3 rounded-xl hover:bg-purple-700 transition"
-        >
-          شروع مشاوره
-        </a>
+        
+      <Link className="mt-6 inline-block bg-purple-600 text-white px-6 py-3 rounded-xl hover:bg-purple-700 transition" href={"/booking"}>رزرو مشاوره</Link>
+
       </section>
 
       <section className="py-16 px-6 max-w-6xl mx-auto text-center">
