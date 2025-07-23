@@ -11,6 +11,9 @@
   "dependencies": {
     "@auth/prisma-adapter": "^2.10.0",
     "@prisma/client": "^6.12.0",
+    "bcrypt": "^6.0.0",
+    "bcryptjs": "^3.0.2",
+    "cookies-next": "^6.1.0",
     "next": "15.4.1",
     "next-auth": "^4.24.11",
     "nprogress": "^0.2.0",

@@ -31,6 +31,7 @@ export default function AdminLogin() {
         <h2 className="text-2xl font-bold text-center mb-4 text-[#9810FA]">ورود ادمین</h2>
         <form onSubmit={handleLogin} className="space-y-4">
           <input
+            dir='rtl'
             type="text"
             placeholder="نام کاربری"
             value={username}
@@ -38,6 +39,7 @@ export default function AdminLogin() {
             className="w-full p-2 border rounded"
           />
           <input
+            dir='rtl'
             type="password"
             placeholder="رمز عبور"
             value={password}
@@ -45,7 +47,7 @@ export default function AdminLogin() {
             className="w-full p-2 border rounded"
           />
           {error && <p className="text-red-500 text-sm">{error}</p>}
-          <button type="submit" className="bg-[#9810FA] text-white w-full py-2 rounded hover:bg-purple-800 transition">
+          <button type="submit" className="bg-[#9810FA] text-white w-full py-2 rounded hover:bg-purple-800 transition cursor-pointer">
             ورود
           </button>
         </form>

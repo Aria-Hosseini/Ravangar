@@ -94,16 +94,16 @@ export default function AdminDashboard() {
         )}
 
 
-      {/* دکمه خروج */}
+
       <div className="text-center mt-8">
         <button
           onClick={() => {
             localStorage.removeItem('isAdmin');
             router.push('/admin/login');
           }}
-          className="text-sm text-gray-500 hover:text-red-500 transition"
+          className="cursor-pointer text-sm text-gray-500 hover:text-red-500 transition border-2 p-2 rounded-md"
         >
-          خروج از حساب کاربری
+          خروج از داشبورد مدیریت
         </button>
       </div>
     </div>

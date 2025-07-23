@@ -17,7 +17,6 @@ export default function Booking() {
         <p className="text-sm text-gray-500 mb-2">مرحله {step} از 6</p>
         <h1 className="text-4xl font-bold text-[#9810FA] mb-6">درخواست مشاوره</h1>
 
-        {/* مرحله ۱: نوع مشاوره */}
         {step === 1 && (
           <div className="space-y-4">
             <p className="text-lg">لطفاً نوع مشاوره را انتخاب کنید:</p>
@@ -38,7 +37,6 @@ export default function Booking() {
           </div>
         )}
 
-        {/* مرحله ۲: روش مشاوره */}
         {step === 2 && selectedType && (
           <div className="space-y-4">
             <p className="text-lg">روش مشاوره مدنظر شما چیست؟</p>
@@ -62,7 +60,6 @@ export default function Booking() {
           </div>
         )}
 
-        {/* مرحله ۳: هویت مراجعه‌کننده */}
         {step === 3 && selectedMethod && (
           <div className="space-y-4">
             <p className="text-lg">آیا مراجعه‌کننده خود شما هستید یا یکی از نزدیکان؟</p>
@@ -86,7 +83,6 @@ export default function Booking() {
           </div>
         )}
 
-        {/* مرحله ۴: شدت مشکل */}
         {step === 4 && visitorRelation && (
           <div className="space-y-4">
             <p className="text-lg">میزان حاد بودن مشکل را مشخص کنید:</p>
@@ -110,7 +106,6 @@ export default function Booking() {
           </div>
         )}
 
-        {/* مرحله ۵: سابقه مشاوره */}
         {step === 5 && severity && (
           <div className="space-y-4">
             <p className="text-lg">آیا قبلاً سابقه مراجعه به مشاور داشته‌اید؟</p>
@@ -134,7 +129,6 @@ export default function Booking() {
           </div>
         )}
 
-        {/* مرحله ۶: متن راهنما + فرم */}
         {step === 6 && hasHistory && (
           <div className="mt-8 bg-[#F3E8FF] p-6 rounded-lg shadow text-right space-y-6 animate-fade">
             {!hasAcceptedGuide ? (
