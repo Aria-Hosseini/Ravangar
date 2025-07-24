@@ -7,7 +7,7 @@ import { UsersTable } from '@/app/components/UsersTable';
 
 export default function AdminDashboard() {
   const router = useRouter();
-  const [activeTab, setActiveTab] = useState<'users' | 'sessions' | 'requests'| 'booking'>('requests');
+  const [activeTab, setActiveTab] = useState<'users' | 'sessions' | 'requests'| 'booking' | 'blog' |'tickets'>('requests');
 
   useEffect(() => {
     const isAdmin = localStorage.getItem('isAdmin');
@@ -20,7 +20,6 @@ export default function AdminDashboard() {
     <div className="min-h-screen bg-gray-50 p-4 md:p-6">
       <h1 className="text-3xl font-bold text-[#9810FA] mb-6 text-center">داشبورد مدیریت</h1>
 
-      {/* تب‌های بالای صفحه */}
       <div className="flex flex-wrap justify-center gap-3 mb-6">
         <button
           onClick={() => setActiveTab('requests')}
@@ -54,6 +53,28 @@ export default function AdminDashboard() {
         </button>
 
         <button
+        onClick={()=>setActiveTab('blog')}
+        className={`px-4 py-2 rounded-full text-sm font-medium border ${
+            activeTab === 'blog'
+              ? 'bg-[#9810FA] text-white'
+              : 'bg-white text-[#9810FA] border-[#9810FA]'
+          } transition`}
+        >
+         📃 وبلاگ
+        </button>
+
+        <button
+        onClick={()=>setActiveTab('tickets')}
+        className={`px-4 py-2 rounded-full text-sm font-medium border ${
+            activeTab === 'tickets'
+              ? 'bg-[#9810FA] text-white'
+              : 'bg-white text-[#9810FA] border-[#9810FA]'
+          } transition`}
+        >
+         📫 تیکت ها
+        </button>
+
+        <button
         onClick={() => setActiveTab('booking')}
         className={`px-4 py-2 rounded-full text-sm font-medium border ${
         activeTab === 'booking' ? 'bg-[#9810FA] text-white' : 'bg-white text-[#9810FA] border-[#9810FA]'} transition`}
@@ -63,7 +84,6 @@ export default function AdminDashboard() {
 
       </div>
 
-      {/* محتوا بر اساس تب فعال */}
       <div className="bg-white rounded-lg shadow p-4 md:p-6">
         {activeTab === 'requests' && (
           <div>
@@ -93,7 +113,19 @@ export default function AdminDashboard() {
          </div>
         )}
 
+      {activeTab === 'blog'&& (
+        <div>
+          <h2 className="text-xl font-bold mb-4 text-[#9810FA]">بخش وبلاگ</h2>
 
+        </div>
+      )}
+
+      {activeTab === 'tickets' && (
+        <div>
+           <h2 className="text-xl font-bold mb-4 text-[#9810FA]">بخش تیکت</h2>
+
+        </div>
+      )}
 
       <div className="text-center mt-8">
         <button

@@ -1,7 +1,8 @@
 import { PrismaClient } from '@/generated/prisma';
 import { NextRequest, NextResponse } from 'next/server';
 import bcrypt from 'bcryptjs';
-import { cookies } from 'next/headers'; 
+import jwt from 'jsonwebtoken';
+import { cookies } from 'next/headers';
 
 const prisma = new PrismaClient();
 
@@ -22,16 +23,19 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'رمز اشتباه است' }, { status: 401 });
   }
 
-const cookieStore = await cookies();
-  cookieStore.set('authToken', 'test-session-token', {
+  const token = jwt.sign(
+    { id: user.id, email: user.email },
+    process.env.JWT_SECRET!,
+    { expiresIn: '1d' }
+  );
+
+  const cookieStore = await cookies();
+  cookieStore.set('authToken', token, {
     httpOnly: true,
     secure: true,
     path: '/',
-    maxAge: 60 * 60 * 24, 
+    maxAge: 60 * 60 * 24,
   });
 
-  return NextResponse.json({
-    success: true,
-    user: { id: user.id, name: user.name },
-  });
+  return NextResponse.json({ success: true });
 }

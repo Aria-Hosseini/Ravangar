@@ -1,5 +1,7 @@
 import { Vazirmatn } from "next/font/google";
 import Link from "next/link";
+import Accordion from "./components/home/Accordion";
+import BlogCard from "./components/home/BlogCard";
 
 export default function Home() {
   return (
@@ -17,7 +19,13 @@ export default function Home() {
       </section>
 
       <section className="py-16 px-6 max-w-6xl mx-auto text-center">
-        <h2 className="text-3xl font-bold text-purple-700 mb-10">خدمات ما</h2>
+        
+      <div className="flex items-center justify-center text-3xl text-gray-700 font-bold mb-1 gap-x-3">
+        <i className="fas fa-quote-left text-gray-500"></i>
+        <span>خدمات ما</span>
+        <i className="fas fa-quote-right text-gray-500"></i>
+      </div>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
             {
@@ -47,37 +55,35 @@ export default function Home() {
       </section>
 
       <section className="bg-purple-50 py-16 px-6 text-center">
-        <h2 className="text-3xl font-bold text-purple-700 mb-10">آخرین مقالات</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {["استرس و راهکارها", "چگونه با افسردگی مقابله کنیم", "تأثیر گفت‌وگو در روابط"].map(
-            (title, i) => (
-              <div
-                key={i}
-                className="bg-white p-5 rounded-xl border border-purple-100 shadow hover:shadow-md transition"
-              >
-                <h3 className="text-lg font-semibold text-purple-600 mb-2">{title}</h3>
-                <p className="text-sm text-gray-600">
-                  توضیحی کوتاه درباره مقاله.
-                </p>
-                <a href="#" className="text-sm text-purple-700 mt-2 inline-block hover:underline">
-                  ادامه مطلب
-                </a>
-              </div>
-            )
-          )}
-        </div>
+
+        <div className="flex items-center justify-center text-3xl text-gray-700 font-bold mb-1 gap-x-3">
+        <i className="fas fa-quote-left text-gray-500"></i>
+        <span>آخرین مقالات</span>
+        <i className="fas fa-quote-right text-gray-500"></i>
+      </div>
+
+          <BlogCard />
+
       </section>
 
     
       <section className="bg-purple-600 py-20 px-6 text-center text-white">
         <h2 className="text-3xl font-bold mb-4">آماده‌ای قدمی برای سلامت روانت برداری؟</h2>
-        <p className="text-lg mb-6">الان شروع کن و با یک مشاور حرفه‌ای گفتگو کن.</p>
-        <a
-          href="#booking"
-          className="bg-white text-purple-700 font-semibold px-6 py-3 rounded-xl hover:bg-purple-100 transition"
-        >
-          رزرو جلسه مشاوره
-        </a>
+        <p className="text-lg mb-6">همین حالا شروع کن و با یک مشاور حرفه ای صحبت کن</p>
+
+        <Link className="bg-white text-purple-700 font-semibold px-6 py-3 rounded-xl hover:bg-purple-100 transition" href={"/booking"}>
+        رزرو جلسه مشاوره
+        </Link>
+        
+      </section>
+      <div className="flex items-center justify-center text-3xl text-gray-700 font-bold mt-5 mb-1 gap-x-3">
+        <i className="fas fa-quote-left text-gray-500"></i>
+        <span>سوالات متداول شما</span>
+        <i className="fas fa-quote-right text-gray-500"></i>
+      </div>
+
+      <section>
+        <Accordion />
       </section>
     </main>
   );
