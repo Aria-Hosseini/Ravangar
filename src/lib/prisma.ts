@@ -1,9 +1,13 @@
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient } from '@prisma/client';
 
-const globalForPrisma = globalThis as unknown as {
-  prisma: PrismaClient | undefined
+declare global {
+  var prisma: PrismaClient | undefined;
 }
 
-export const prisma = globalForPrisma.prisma ?? new PrismaClient()
+export const prisma =
+  global.prisma ??
+  new PrismaClient({
+    log: ['query'], // اختیاری: لاگ گرفتن کوئری‌ها برای دیباگ
+  });
 
-if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma
+if (process.env.NODE_ENV !== 'production') global.prisma = prisma;

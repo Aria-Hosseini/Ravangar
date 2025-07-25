@@ -39,9 +39,11 @@ export default function Header() {
         <div className="flex items-center space-x-4">
           {isLoggedIn ? (
             <Link href={"/dashboard"}>
-              <button className="bg-purple-600 text-white px-5 py-2 rounded hover:bg-purple-700 transition shadow-md cursor-pointer">
-                پنل کاربری
-              </button>
+<button className="text-md text-gray-500 border cursor-pointer border-gray-300 px-4 py-2 rounded-sm hover:text-purple-600 hover:border-purple-500 transition flex items-center gap-2">
+  <i className="fas fa-user"></i>
+  پنل کاربری
+</button>
+
             </Link>
           ) : (
             <>

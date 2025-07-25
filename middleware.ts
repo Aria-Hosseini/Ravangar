@@ -1,25 +1,23 @@
+// middleware.ts
 import { NextRequest, NextResponse } from 'next/server';
 import jwt from 'jsonwebtoken';
 
 export function middleware(req: NextRequest) {
-  const token = req.cookies.get('authToken')?.value;
-  const isProtected = req.nextUrl.pathname.startsWith('/dashboard');
+  const token = req.cookies.get('adminToken')?.value;
 
-  if (isProtected) {
-    if (!token) {
-      return NextResponse.redirect(new URL('/', req.url));
-    }
-
-    try {
-      jwt.verify(token, process.env.JWT_SECRET!);
-    } catch (err) {
-      return NextResponse.redirect(new URL('/', req.url)); // توکن نامعتبر یا منقضی‌شده
-    }
+  if (!token) {
+    return NextResponse.redirect(new URL('/admin/login', req.url));
   }
 
-  return NextResponse.next();
+  try {
+    jwt.verify(token, process.env.JWT_SECRET!);
+    return NextResponse.next();
+  } catch (err) {
+    return NextResponse.redirect(new URL('/admin/login', req.url));
+  }
 }
 
+// فقط مسیرهای زیر رو بررسی کن
 export const config = {
-  matcher: ['/dashboard/:path*'],
+  matcher: ['/admin/dashboard'],
 };

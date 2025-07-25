@@ -37,9 +37,21 @@ export default function RegisterForm() {
       </h2>
 
       {done ? (
-        <p className="text-green-600 text-center bg-green-50 py-2 px-4 rounded shadow-sm">
-          ثبت‌نام با موفقیت انجام شد! 🎉
+        <>
+        <p className="text-green-600 text-center py-2 px-4 rounded mb-10 mt-10 flex items-center justify-center gap-2">
+          <i className="fas fa-circle-check text-green-600 text-lg"></i>
+          ثبت‌نام با موفقیت انجام شد!
         </p>
+
+        <div className="flex justify-center">
+          <Link href="/login">
+          <button className="cursor-pointer px-6 py-2 bg-fuchsia-700 text-white hover:shadow-2xl text-sm rounded-md shadow-sm transition duration-200">
+          وارد شوید
+          </button>
+          </Link>
+        </div>
+        </>
+        
       ) : (
         <form onSubmit={handleSubmit} className="space-y-6 text-right">
           <div className="flex flex-col gap-1">

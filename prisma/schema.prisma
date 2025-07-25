@@ -16,3 +16,13 @@ model users {
   email_verified DateTime? @db.Timestamp(6)
   created_at     DateTime? @default(now()) @db.Timestamp(6)
 }
+
+model Admin {
+  id        Int      @id @default(autoincrement())
+  firstName String
+  lastName  String
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+}
+
