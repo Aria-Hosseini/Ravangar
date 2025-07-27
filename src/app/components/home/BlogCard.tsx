@@ -1,20 +1,26 @@
 export default function BlogCard (){
     return(
         <>
-        
-      <div className="cursor-pointer grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto px-4 py-8">
+      <section className="py-5 px-6 text-center select-none">
+        <div className="flex items-center justify-center text-3xl mb-5 text-gray-700 font-bold gap-x-3">
+          <i className="fas fa-quote-left text-gray-500"></i>
+          <span>آخرین مقالات</span>
+          <i className="fas fa-quote-right text-gray-500"></i>
+        </div>
+
+      <div className="cursor-pointer grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
       {[
       {
         title: "استرس و راهکارها",
-        image: "/img/imgtest.jpg",
+        image: "/img/test.jpg",
       },
       {
         title: "چگونه با افسردگی مقابله کنیم",
-        image: "/img/imgtest.jpg",
+        image: "/img/test.jpg",
       },
       {
         title: "تأثیر گفت‌وگو در روابط",
-        image: "/img/imgtest.jpg",
+        image: "/img/test.jpg",
       },
         ].map((item, i) => (
       <div
@@ -43,6 +49,8 @@ export default function BlogCard (){
         </div>
       ))}
       </div>
+      </section>
+        
         </>
     )
 }

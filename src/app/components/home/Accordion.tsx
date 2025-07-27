@@ -3,11 +3,11 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const data = [
-  { title: 'عنوان اول', content: 'This is the first accordion body with helpful information.' },
-  { title: 'عنوان دوم', content: 'This is the second accordion body with more details.' },
-  { title: 'عنوان سوم', content: 'This is the third accordion body with extra notes.' },
-  { title: 'عنوان چهارم', content: 'This is the third accordion body with extra notes.' },
-  { title: 'عنوان پنجم', content: 'This is the third accordion body with extra notes.' },
+  { title: 'چگونه می‌توانم وقت مشاوره آنلاین رزرو کنم؟', content: 'برای رزرو وقت مشاوره، کافیست وارد حساب کاربری خود شوید، سپس از بخش «رزرو مشاوره»، مشاور مورد نظر، تاریخ و ساعت مناسب را انتخاب کرده و فرآیند پرداخت را تکمیل کنید. بلافاصله لینک جلسه برای شما ارسال می‌شود.' },
+  { title: 'آیا مشاوره‌ها فقط مخصوص زنان و دختران نوجوان است؟', content: 'بله، خدمات این وب‌اپلیکیشن به‌صورت تخصصی برای بانوان و دختران نوجوان طراحی شده تا در فضایی امن و حرفه‌ای بتوانند مسائل خود را با مشاوران متخصص در میان بگذارند.' },
+  { title: 'آیا امکان لغو یا تغییر زمان مشاوره وجود دارد؟', content: 'بله، تا ۲۴ ساعت قبل از زمان مشاوره، می‌توانید از طریق پنل کاربری خود جلسه را لغو کرده یا به زمان دیگری منتقل کنید. پس از این مدت، امکان لغو وجود نخواهد داشت.' },
+  { title: 'مشاوره‌ها در چه زمینه‌هایی ارائه می‌شوند؟', content: 'مشاوره‌ها در حوزه‌هایی مانند سلامت روان، اضطراب، افسردگی، بلوغ و تغییرات نوجوانی، روابط خانوادگی، فرزندپروری، و توانمندسازی زنان ارائه می‌شوند. می‌توانید با توجه به نیاز خود، مشاور مناسب را انتخاب کنید.' },
+  
 ];
 
 export default function Accordion() {
@@ -18,7 +18,7 @@ export default function Accordion() {
   };
 
   return (
-    <div className="flex flex-col md:flex-row gap-6 p-6">
+    <div className="flex flex-col md:flex-row md:items-center md:justify-center md:gap-12 px-4 md:px-8 py-12 max-w-7xl mx-auto select-none">
       <div className="flex-1 space-y-4">
         {data.map((item, index) => (
           <div
@@ -40,33 +40,31 @@ export default function Accordion() {
                 </svg>
               </motion.span>
               <span>{item.title}</span>
-              
             </button>
 
-        <AnimatePresence initial={false}>
-          {activeIndex === index && (
-          <motion.div
-          key="content"
-          initial={{ height: 0 }}
-          animate={{ height: 'auto' }}
-          exit={{ height: 0 }}
-          transition={{ duration: 0.6, ease: [0.25, 0.8, 0.25, 1] }}
-          className="overflow-hidden"
-        >
-        <motion.div
-          initial={{ opacity: 0, y: -8 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -8 }}
-          transition={{ duration: 0.4, ease: 'easeInOut' }}
-          className="px-5 pb-4 text-gray-600 text-base leading-relaxed"
-          dir="rtl"
-        >
-          {item.content}
-        </motion.div>
-      </motion.div>
-      )}
-      </AnimatePresence>
-
+            <AnimatePresence initial={false}>
+              {activeIndex === index && (
+                <motion.div
+                  key="content"
+                  initial={{ height: 0 }}
+                  animate={{ height: 'auto' }}
+                  exit={{ height: 0 }}
+                  transition={{ duration: 0.6, ease: [0.25, 0.8, 0.25, 1] }}
+                  className="overflow-hidden"
+                >
+                  <motion.div
+                    initial={{ opacity: 0, y: -8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -8 }}
+                    transition={{ duration: 0.4, ease: 'easeInOut' }}
+                    className="px-5 pb-4 text-gray-600 text-base leading-relaxed"
+                    dir="rtl"
+                  >
+                    {item.content}
+                  </motion.div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         ))}
       </div>
@@ -75,7 +73,7 @@ export default function Accordion() {
         <img
           src="/img/imgAcc.png"
           alt="Accordion visual"
-          className="rounded-2xl shadow-lg w-full h-auto object-cover"
+          className="rounded-2xl shadow-lg w-150 h-auto object-cover"
         />
       </div>
     </div>

@@ -6,6 +6,7 @@ import AdminRegisterModal from './AdminRegisterModal';
 export default function AdminTable() {
   const [admins, setAdmins] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
+  
   useEffect(() => {
     async function fetchAdmins() {
       try {
